@@ -22,7 +22,9 @@ export default {
       return await user.save();
     },
     updateUser: async (_parent: undefined, args: User) => {
-      const user = await userModel.findByIdAndUpdate(args.id, args);
+      const user = await userModel.findByIdAndUpdate(args.id, args, {
+        new: true,
+      });
       return user;
     },
     deleteUser: async (_parent: undefined, args: User) => {

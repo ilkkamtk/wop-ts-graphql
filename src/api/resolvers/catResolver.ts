@@ -32,7 +32,9 @@ export default {
       return await cat.save();
     },
     updateCat: async (_parent: undefined, args: Cat) => {
-      const cat = await catModel.findByIdAndUpdate(args.id, args);
+      const cat = await catModel.findByIdAndUpdate(args.id, args, {
+        new: true,
+      });
       return cat;
     },
     deleteCat: async (_parent: undefined, args: Cat) => {
